@@ -4,7 +4,7 @@ export async function POST(request) {
   const axios = require('axios');
   const rapidAPIKey = process.env.APIKEY;
   const rapidAPIHost = 'chatgpt-42.p.rapidapi.com';
-  const chatGPTUrl = 'https://chatgpt-42.p.rapidapi.com/gpt4';
+  const chatGPTUrl = 'https://chatgpt-42.p.rapidapi.com/conversationgpt4';
 
   try {
     const requestData = await request.json();
