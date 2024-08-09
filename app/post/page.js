@@ -20,7 +20,7 @@ export default function Home() {
 
   return (
     <div className='max-h-full'>
-      <div className='flex mb-0 max-h-[450px] m-5'>        
+      <div className='flex max-h-[450px] m-5'>        
          <div className="m-5   rounded-xl flex flex-col flex-1">
                <p classname="font-bold">Describe about your post in few words     
                 </p>
@@ -45,11 +45,11 @@ export default function Home() {
           </div>
        </div>
 
-       <div className='mx-7'>
-        <p className='font-bold text-lg'>
-           your generated post
+       <div className='mx-44'>
+        <p className='font-bold text-lg pl-2'>
+           Your generated post
         </p>
-        <div className=" h-[20rem] border-4 border-[#0A66C2] bg-white rounded-3xl flex content-center lg:h-[23rem] p-9 mt-5">
+        <div className=" min-h-[20rem] border-4 border-[#0A66C2] bg-white rounded-3xl flex content-center lg:h-[23rem] p-9 mt-2">
 
             <p>{result}</p>
         </div>
