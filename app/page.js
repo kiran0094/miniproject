@@ -1,39 +1,37 @@
-"use client"
-import React, { useState } from 'react';
-import { Textarea } from "@/components/ui/textarea"
-import Header from "../components/component/header";
-import Buttongroup from "../components/component/buttongroup";
+import React from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
 
-export default function Home() {
- const [prompt, setprompt] = useState();
- const [result, setResult] = useState('');
- 
- const handleResult = (newResult) => {
-  setResult(newResult);
-}
+const page = () => {
+    return (
+      <div className='flex  m-14'>
+        <div className='flex-1 '> 
+         <Image
+         src="images/linkedinhead.svg"
+         width={505}
+         height={154}
+         alt='logo-image'/>
+         <div className='bg-gradient-to-r from-blue-500 via-blue-800 to-blue-300 bg-clip-text text-transparent'>
+          <p className='text-[130px] font-bold pt-0 mt-0 leading-none mb-6'>Descriptor</p>
 
-  return (
-    <>
-    <div>
-    <main className="lg:flex lg:justify-center leading-[0]">
-        <Header/>
-    </main>
-    <div className="m-5  bg-white h-[29rem] rounded-xl pt-5 lg:m-16 lg:px-6 lg:pt-12 lg:h-[34rem] flex flex-col">
-      <Textarea  className="mx-5 h-[20rem] border-4 border-[#0A66C2] bg-white rounded-3xl flex content-center lg:h-[23rem] p-9" placeholder="enter the your linkedin post highligths"
-       onChange={(e)=>{setprompt(e.target.value)}}
-      value={prompt}
-      />
-      {/* {prompt} */}
-
-        <div className="mx-5 h-[20rem] border-4 border-[#0A66C2] bg-white rounded-3xl flex content-center lg:h-[23rem] p-9">
-
-            <p>{result}</p>
+         </div>
+        
+        <p className='text-[22px]'>Create a professional, eye-catching LinkedIn posts in seconds</p>
+        <Link 
+        href='/post'>
+        <button
+        className='p-2 rounded-3xl text-white font-bold bg-[#3EA6CE] mt-2'>generator</button>
+        </Link>
         </div>
-        <Buttongroup prompt={prompt} onResult={handleResult}/>
+        
+        <div className='flex-1'>  
+        <Image
+         src="images/linkedinlog.svg"
+         width={582.53}
+         height={529.8}
+         alt='logo-image'/>
+        </div>
       </div>
-
-    </div>
-    </>
-    
-  );
-}
+    )
+  }
+export default page
