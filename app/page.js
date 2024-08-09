@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const page = () => {
     return (
-      <div className='flex  m-14'>
+      <div className=' flex m-14'>
         <div className='flex-1 '> 
          <Image
          src="images/linkedinhead.svg"
@@ -29,7 +29,19 @@ const page = () => {
          src="images/linkedinlog.svg"
          width={582.53}
          height={529.8}
-         alt='logo-image'/>
+         alt='logo-image'
+         className='relative bottom-[90px] inline'/>
+
+         <Image
+         src="images/shadow.svg"
+         width={582.53}
+         height={529.8}
+         alt='logo-image'
+         className='relative bottom-[290px] right-[30px]'/>
+
+
+
+                 
         </div>
       </div>
     )

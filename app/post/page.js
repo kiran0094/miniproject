@@ -3,36 +3,59 @@ import React, { useState } from 'react';
 import { Textarea } from "@/components/ui/textarea"
 import Header from "@/components/component/header";
 import Buttongroup from "@/components/component/buttongroup";
+import Image from 'next/image';
+import { handleSubmit } from "@/custumhook/handleclick"
+
 
 export default function Home() {
  const [prompt, setprompt] = useState();
  const [result, setResult] = useState('');
- 
- const handleResult = (newResult) => {
-  setResult(newResult);
+
+
+ const handleGenerate = async() => {    
+  const result = await handleSubmit(prompt);
+  setResult(result); // Store result in state
+// Pass the result back to the parent component
 }
 
   return (
-    <div className='bg-[#0A66C2] max-h-full'>
-     <div>
-     <main className="lg:flex lg:justify-center leading-[0]">
-        <Header/>
-     </main>
-      <div className="m-5  bg-white h-[29rem] rounded-xl pt-5 lg:m-16 lg:px-6 lg:pt-12 lg:h-[34rem] flex flex-col">
-      <Textarea  className="mx-5 h-[20rem] border-4 border-[#0A66C2] bg-white rounded-3xl flex content-center lg:h-[23rem] p-9" placeholder="enter the your linkedin post highligths"
-       onChange={(e)=>{setprompt(e.target.value)}}
-      value={prompt}
-      />
-      {/* {prompt} */}
+    <div className='max-h-full'>
+      <div className='flex mb-0 max-h-[450px] m-5'>        
+         <div className="m-5   rounded-xl flex flex-col flex-1">
+               <p classname="font-bold">Describe about your post in few words     
+                </p>
+              <Textarea  className="mx-5 h-[20rem] border-4 border-[#0A66C2]  rounded-3xl flex content-center lg:h-[23rem] p-9" placeholder="enter the your linkedin post highligths"
+               onChange={(e)=>{setprompt(e.target.value)}}
+              value={prompt}
+                />
 
-        <div className="mx-5 h-[20rem] border-4 border-[#0A66C2] bg-white rounded-3xl flex content-center lg:h-[23rem] p-9">
+            <button className=" py-2 ml-3  rounded-3xl bg-[#0a66c2] text-white hover:bg-[#004182] hover:font-bold text-sm lg:w-72  mt-5 text-center" 
+            onClick={handleGenerate}>generate post </button>
+
+                
+         </div>
+          <div className='flex-1 flex justify-center items-center'>
+            
+          <Image
+           src="images/img3d.svg"
+           width={400}
+           height={200}
+           alt='logo-image'
+           className=''/>
+          </div>
+       </div>
+
+       <div className='mx-7'>
+        <p className='font-bold text-lg'>
+           your generated post
+        </p>
+        <div className=" h-[20rem] border-4 border-[#0A66C2] bg-white rounded-3xl flex content-center lg:h-[23rem] p-9 mt-5">
 
             <p>{result}</p>
         </div>
-        <Buttongroup prompt={prompt} onResult={handleResult}/>
-      </div>
-
-    </div>
+        <Buttongroup result={result}/>
+       </div>
+         
     </div>
     
   );
